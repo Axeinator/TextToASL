@@ -5,6 +5,9 @@ import os
 from speechRecog import speechRecog
 import speech_recognition
 class SLPic:
+    def __init__(self, letters):
+        self.letters = letters
+        
     @classmethod
     def speechSL(cls):
         speech = speechRecog.convert()
@@ -13,8 +16,7 @@ class SLPic:
         if "not request" in speech:
             raise Exception("Google Speech Recognition was unable to connect. Please try again.")
         return speech
-    def __init__(self, letters):
-        self.letters = letters
+
     def display(self):
         finImg = Image.new('RGB', (512, 512)) # creates a new image for the gif to save to
         imageList = [] # the list of all images
